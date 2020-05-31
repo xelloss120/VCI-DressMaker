@@ -1,8 +1,7 @@
 # VCI-DressMaker
 
 ## これなに
-VRoidのVRMからVCIの衣装を作成するツール
-のUnityプロジェクト(Version2019.3.0f6)
+VRoidのVRMからVCIの衣装を作成するツールのUnityプロジェクト(Version2019.3.0f6)
 
 ## 使い方
 
