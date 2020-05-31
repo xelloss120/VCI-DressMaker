@@ -1,0 +1,19 @@
+{
+    "name": "VCI",
+    "references": [
+        "VRM",
+        "ShaderProperty.Runtime",
+        "UniUnlit",
+        "Effekseer",
+        "Unity.TextMeshPro",
+        "NAudio"
+    ],
+    "optionalUnityReferences": [],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": []
+}
