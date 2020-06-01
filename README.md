@@ -17,7 +17,7 @@ https://twitter.com/120byte
 
 ## どこ見たら良いの？
 
-ここだけ見たら分かると思います。というかここ以外はほとんど書いてません。
+ここだけ見たら分かると思います。というかここ以外はほとんど書いてません。  
 https://github.com/xelloss120/VCI-DressMaker/blob/master/Assets/ExportVCI.cs
 
 # 関連
