@@ -15,6 +15,11 @@ https://twitter.com/120byte
 
 本ソフトウェアの利用により発生した問題は、本ソフトウェア利用者の責任とし、本ソフトウェア作成者は一切の責任を負わないものとします。
 
+## どこ見たら良いの？
+
+ここだけ見たら分かると思います。というかここ以外はほとんど書いてません。
+https://github.com/xelloss120/VCI-DressMaker/blob/master/Assets/ExportVCI.cs
+
 # 関連
 
 ## BOOTH
