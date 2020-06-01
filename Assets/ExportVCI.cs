@@ -70,12 +70,13 @@ public class ExportVCI : MonoBehaviour
         // 不要メッシュの透過
         var renderer = VRM.transform.Find("Body").gameObject.GetComponent<Renderer>();
         var materials = renderer.materials;
-        for (int i = 0; i < renderer.materials.Length - 2; i++)
+        for (int i = 0; i < renderer.materials.Length; i++)
         {
-            materials[i] = Mat;
+            if (!materials[i].name.Contains("CLOTH"))
+            {
+                materials[i] = Mat;
+            }
         }
-        // 後ろから二番目のマテリアルが服テクスチャの想定
-        materials[renderer.materials.Length - 1] = Mat;
         renderer.materials = materials;
 
         // バージョン差吸収
@@ -147,6 +148,7 @@ public class ExportVCI : MonoBehaviour
         if (bone == HumanBodyBones.LeftHand || bone == HumanBodyBones.RightHand)
         {
             box.size = Vector3.zero;
+            box.center = Vector3.up;
         }
         if (bone == HumanBodyBones.Chest)
         {
