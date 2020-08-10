@@ -3458,21 +3458,26 @@ MonoBehaviour:
   License: {fileID: 505208330013289339}
   ExportVCI_Text: {fileID: 505208330893538786}
   Mat: {fileID: 2100000, guid: fb39fffb5f777594db52dc027659d559, type: 2}
-  lua: "local Attached = false\r\n\r\nfunction onUse(use)\r\n    local owner = vci.studio.GetOwner()\r\n\r\n   
-    -- \u4F53\u5E79\r\n    SetAtt(owner, \"Hips\", \"J_Bip_C_Hips\", Attached)\r\n   
-    SetAtt(owner, \"Spine\", \"J_Bip_C_Spine\", Attached)\r\n    SetAtt(owner, \"Chest\",
-    \"J_Bip_C_Chest\", Attached)\r\n\r\n    -- \u8DB3\r\n    SetAtt(owner, \"LeftUpperLeg\",
-    \"J_Bip_L_UpperLeg\", Attached)\r\n    SetAtt(owner, \"RightUpperLeg\", \"J_Bip_R_UpperLeg\",
-    Attached)\r\n    SetAtt(owner, \"LeftLowerLeg\", \"J_Bip_L_LowerLeg\", Attached)\r\n   
-    SetAtt(owner, \"RightLowerLeg\", \"J_Bip_R_LowerLeg\", Attached)\r\n    SetAtt(owner,
-    \"LeftFoot\", \"J_Bip_L_Foot\", Attached)\r\n    SetAtt(owner, \"RightFoot\",
-    \"J_Bip_R_Foot\", Attached)\r\n\r\n    -- \u8155\r\n    SetAtt(owner, \"LeftUpperArm\",
-    \"J_Bip_L_UpperArm\", Attached)\r\n    SetAtt(owner, \"RightUpperArm\", \"J_Bip_R_UpperArm\",
-    Attached)\r\n    SetAtt(owner, \"LeftLowerArm\", \"J_Bip_L_LowerArm\", Attached)\r\n   
-    SetAtt(owner, \"RightLowerArm\", \"J_Bip_R_LowerArm\", Attached)\r\n    SetAtt(owner,
-    \"LeftHand\", \"J_Bip_L_Hand\", Attached)\r\n    SetAtt(owner, \"RightHand\",
-    \"J_Bip_R_Hand\", Attached)\r\n\r\n    Attached = not Attached\r\nend\r\n\r\nfunction
-    SetAtt(owner, boneName, itemName, attached)\r\n    local bone = owner.GetBoneTransform(boneName)\r\n   
+  lua: "local Attached = false\r\n\r\nfunction onUse(use)\r\n    -- \u88C5\u7740\u5BFE\u8C61\u306E\u9078\u629E\r\n   
+    local avatars = vci.studio.GetAvatars()\r\n    local avatar = avatars[1]\r\n   
+    for i = 2, #avatars do\r\n        local pos = vci.assets.GetSubItem(use).GetPosition()\r\n       
+    local current = Vector3.Distance(pos, avatar.GetPosition())\r\n        local
+    next = Vector3.Distance(pos, avatars[i].GetPosition())\r\n        if current
+    > next then\r\n            avatar = avatars[i]\r\n        end\r\n    end\r\n\r\n   
+    -- \u4F53\u5E79\r\n    SetAtt(avatar, \"Hips\", \"J_Bip_C_Hips\", Attached)\r\n   
+    SetAtt(avatar, \"Spine\", \"J_Bip_C_Spine\", Attached)\r\n    SetAtt(avatar,
+    \"Chest\", \"J_Bip_C_Chest\", Attached)\r\n\r\n    -- \u8DB3\r\n    SetAtt(avatar,
+    \"LeftUpperLeg\", \"J_Bip_L_UpperLeg\", Attached)\r\n    SetAtt(avatar, \"RightUpperLeg\",
+    \"J_Bip_R_UpperLeg\", Attached)\r\n    SetAtt(avatar, \"LeftLowerLeg\", \"J_Bip_L_LowerLeg\",
+    Attached)\r\n    SetAtt(avatar, \"RightLowerLeg\", \"J_Bip_R_LowerLeg\", Attached)\r\n   
+    SetAtt(avatar, \"LeftFoot\", \"J_Bip_L_Foot\", Attached)\r\n    SetAtt(avatar,
+    \"RightFoot\", \"J_Bip_R_Foot\", Attached)\r\n\r\n    -- \u8155\r\n    SetAtt(avatar,
+    \"LeftUpperArm\", \"J_Bip_L_UpperArm\", Attached)\r\n    SetAtt(avatar, \"RightUpperArm\",
+    \"J_Bip_R_UpperArm\", Attached)\r\n    SetAtt(avatar, \"LeftLowerArm\", \"J_Bip_L_LowerArm\",
+    Attached)\r\n    SetAtt(avatar, \"RightLowerArm\", \"J_Bip_R_LowerArm\", Attached)\r\n   
+    SetAtt(avatar, \"LeftHand\", \"J_Bip_L_Hand\", Attached)\r\n    SetAtt(avatar,
+    \"RightHand\", \"J_Bip_R_Hand\", Attached)\r\n\r\n    Attached = not Attached\r\nend\r\n\r\nfunction
+    SetAtt(avatar, boneName, itemName, attached)\r\n    local bone = avatar.GetBoneTransform(boneName)\r\n   
     local item = vci.assets.GetSubItem(itemName)\r\n    if bone ~= nil and item ~=
     nil then\r\n        -- \u4F4D\u7F6E\u3068\u56DE\u8EE2\u306E\u5408\u308F\u305B\r\n       
     item.SetPosition(bone.position)\r\n        item.SetRotation(bone.rotation)\r\n\r\n       
