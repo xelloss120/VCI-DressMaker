@@ -63,7 +63,7 @@ public class DandD : MonoBehaviour
     void Start()
     {
 #if UNITY_EDITOR
-        //ImportVRM(@"C:\test.vrm");
+        ImportVRM(@"C:\test.vrm");
 #endif
     }
 }

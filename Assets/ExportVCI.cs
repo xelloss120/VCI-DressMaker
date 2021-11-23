@@ -108,6 +108,11 @@ public class ExportVCI : MonoBehaviour
         SetAtt(hips + "J_Bip_C_Spine", HumanBodyBones.Spine);
         SetAtt(hips , HumanBodyBones.Hips);
 
+        // Offscreen無効対策
+        VRM.transform.Find("Root").parent = VRM.transform.Find("J_Bip_C_Hips");
+        VRM.transform.Find("Body").parent = VRM.transform.Find("J_Bip_C_Hips");
+
+        // VCI書き出し
         var gltf = new glTF();
         var exporter = new VCIExporter(gltf);
         exporter.Prepare(VRM);
